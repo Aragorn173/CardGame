@@ -1,11 +1,22 @@
 public class game {
     public static void main(String[] args) {
-        God God = new God("god", 100, 50);
-        God human = new God("human",75, 10);
+        God God = new God("God", 1000, 50);
+        The_indomitable_human_spirit human = new The_indomitable_human_spirit("Human",100, 90);
 
-        human.attack(God);
 
-        System.out.println(God);
-        System.out.println(human);
+        while (human.getHealth() > 0 && God.getHealth() > 0) {
+            if (human.getHealth() > 0) {
+                human.attack(God);
+                God.deathCheck(human);
+            }
+            if (God.getHealth() > 0) {
+                God.attack(human);
+                God.Smite(human);
+                human.determinationCheck();
+                human.deathCheck(God);
+            }
+        }
+            System.out.println(God);
+            System.out.println(human);
     }
 }

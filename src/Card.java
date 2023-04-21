@@ -1,3 +1,5 @@
+import java.sql.SQLOutput;
+
 public class Card {
 
     String name;
@@ -30,8 +32,15 @@ public class Card {
 
 
     public void attack(Card enemy) {
-        System.out.println(this.name + "attacks" + enemy.getName());
+        System.out.println(this.name + " attacks " + enemy.getName() + " for: " + this.attack +"dmg");
         enemy.setHealth(enemy.getHealth() - this.attack);
+    }
+
+    public void deathCheck(Card enemy) {
+        if (this.health <= 0) {
+            System.out.println(this.name + " HAS DIED");
+            System.out.println(enemy.getName() + " IS VICTORIOUS");
+        }
     }
 
 
